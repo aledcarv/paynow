@@ -1,0 +1,28 @@
+---
+pt-BR:
+  activerecord:
+    model:
+      admin:
+        one: administrador
+        other: administradores
+    attributes:
+      admin:
+        email: Email
+        password: Senha
+  admins:
+    passwords:
+      edit:
+        title: Mude a sua senha
+        new_password: Nova senha
+        confirm_new_password: Confirmar nova senha
+        change_password: Mudar minha senha
+      new:
+        title: Esqueceu sua senha?
+        send_password_instructions: Envie-me instruções para reformular a senha
+    sessions:
+      new:
+        title: Acesse a sua conta
+        submit: Entrar
+    shared:
+      links:
+        forgot_password: Esqueceu sua senha?

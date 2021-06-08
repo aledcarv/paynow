@@ -11,20 +11,31 @@
   </head>
 
   <body>
-  <% if notice %>
-    <div>
+    <% if admin_signed_in? %>
       <p>
-        <%= notice %>
+        <%= current_admin.email %>
       </p>
-    </div>
-  <% end %>
-  <% if alert %>
-    <div>
+
       <p>
-        <%= alert %>
+        <%= link_to 'Sair', destroy_admin_session_path, method: :delete %>
       </p>
-    </div>
-  <% end %>
+    <% else %>
+      <p><%= link_to 'Entrar', new_admin_session_path %></p>
+    <% end %>
+    <% if notice %>
+      <div>
+        <p>
+          <%= notice %>
+        </p>
+      </div>
+    <% end %>
+    <% if alert %>
+      <div>
+        <p>
+          <%= alert %>
+        </p>
+      </div>
+    <% end %>
 
     <%= yield %>
   </body>
