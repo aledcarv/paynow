@@ -11,6 +11,21 @@
   </head>
 
   <body>
+  <% if notice %>
+    <div>
+      <p>
+        <%= notice %>
+      </p>
+    </div>
+  <% end %>
+  <% if alert %>
+    <div>
+      <p>
+        <%= alert %>
+      </p>
+    </div>
+  <% end %>
+
     <%= yield %>
   </body>
 </html>
