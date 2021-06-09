@@ -40,6 +40,6 @@ describe 'admin view payment method' do
         expect(page).to have_content('Boleto do banco laranja')
         expect(page).to have_content('5,0%')
         expect(page).to have_content('R$ 80,00')
-        expect(page).to have_content('ativo')
+        expect(page).to have_content('Ativo')
     end
 end
