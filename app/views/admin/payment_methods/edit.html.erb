@@ -1,0 +1,13 @@
+<h1>Edite um meio de pagamento</h1>
+
+<%= form_with model: [:admin, @payment_method] do |form| %>
+    <%= form.label :name, 'Nome' %>
+    <%= form.text_field :name %>
+    <%= form.label :tax_porcentage, 'Taxa de cobrança' %>
+    <%= form.number_field :tax_porcentage %>
+    <%= form.label :tax_maximum, 'Taxa máxima' %>
+    <%= form.number_field :tax_maximum %>
+    <%= form.label :status, 'Status' %>
+    <%= form.select :status, [['Ativo', true], ['Inativo', false]] %>
+    <%= form.submit 'Editar' %>
+<% end %>

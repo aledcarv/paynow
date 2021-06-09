@@ -8,3 +8,6 @@
     <dt>Status:</dt>
     <dd><%= @payment_method.status ? 'Ativo' : 'Inativo' %></dd>
 </dl>
+
+
+<%= link_to 'Editar meio de pagamento', edit_admin_payment_method_path(@payment_method) %>
