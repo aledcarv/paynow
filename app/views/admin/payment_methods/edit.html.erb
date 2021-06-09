@@ -1,4 +1,4 @@
-<h1>Edite um meio de pagamento</h1>
+<h1>Editar meio de pagamento</h1>
 
 <%= form_with model: [:admin, @payment_method] do |form| %>
     <%= form.label :name, 'Nome' %>
@@ -10,4 +10,13 @@
     <%= form.label :status, 'Status' %>
     <%= form.select :status, [['Ativo', true], ['Inativo', false]] %>
     <%= form.submit 'Editar' %>
+<% end %>
+
+<% if @payment_method.errors.any? %>
+    <p>Total de erro(s): <%= @payment_method.errors.count %></p>
+    <ul>
+        <% @payment_method.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+        <% end %>
+    </ul>
 <% end %>

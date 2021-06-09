@@ -25,8 +25,8 @@ describe 'admin edits payment method' do
     end
 
     it 'and can not be blank' do
-        pay_method = PaymentMethod.create!(name: 'Boleto do banco laranja', tax_porcentage: 10,
-                                           tax_maximum: 100, status: true)
+        PaymentMethod.create!(name: 'Boleto do banco laranja', tax_porcentage: 10,
+                              tax_maximum: 100, status: true)
 
         admin_login
         visit root_path
@@ -34,14 +34,19 @@ describe 'admin edits payment method' do
         click_on 'Boleto do banco laranja'
         click_on 'Editar meio de pagamento'
 
+        fill_in 'Nome', with: ''
+        fill_in 'Taxa de cobrança', with: ''
+        fill_in 'Taxa máxima', with: ''
         click_on 'Editar'
 
         expect(page).to have_content('não pode ficar em branco', count: 3)
     end
 
     it 'and name must be unique' do
-        pay_method = PaymentMethod.create!(name: 'Boleto do banco laranja', tax_porcentage: 10,
-                                           tax_maximum: 100, status: true)
+        PaymentMethod.create!(name: 'Boleto do banco laranja', tax_porcentage: 10,
+                              tax_maximum: 100, status: true)
+        PaymentMethod.create!(name: 'Boleto do banco roxo', tax_porcentage: 5,
+                              tax_maximum: 80, status: true)
 
         admin_login
         visit root_path
@@ -49,10 +54,7 @@ describe 'admin edits payment method' do
         click_on 'Boleto do banco laranja'
         click_on 'Editar meio de pagamento'
 
-        fill_in 'Nome', with: 'Boleto do banco laranja'
-        fill_in 'Taxa de cobrança', with: 15
-        fill_in 'Taxa máxima', with: 150
-        select 'Ativo', from: 'Status'
+        fill_in 'Nome', with: 'Boleto do banco roxo'
         click_on 'Editar'
 
         expect(page).to have_content('já está em uso')

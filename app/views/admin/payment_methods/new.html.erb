@@ -13,7 +13,7 @@
 <% end %>
 
 <% if @payment_method.errors.any? %>
-    <p>Foram encontrados <%= @payment_method.errors.count %> erro(s)</p>
+    <p>Total de erro(s): <%= @payment_method.errors.count %></p>
     <ul>
         <% @payment_method.errors.each do |error| %>
             <li><%= error.full_message %></li>
