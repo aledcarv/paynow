@@ -1,0 +1,11 @@
+<h1>Meios de pagamento</h1>
+
+<% if @payment_methods.empty? %>
+    <h3><%= 'Nenhum meio de pagamento disponível' %></h3>
+<% end %>
+
+<% @payment_methods.each do |pay_method| %>
+    <h3><%= link_to pay_method.name, [:admin, pay_method] %></h3>
+    <p><%= number_to_percentage pay_method.tax_porcentage, precision: 1 %></p>
+    <p><%= number_to_currency pay_method.tax_maximum %></p>
+<% end %>
