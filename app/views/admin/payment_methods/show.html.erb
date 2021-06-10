@@ -9,5 +9,8 @@
     <dd><%= @payment_method.status ? 'Ativo' : 'Inativo' %></dd>
 </dl>
 
+<%= image_tag @payment_method.icon_payment_type %>
 
-<%= link_to 'Editar meio de pagamento', edit_admin_payment_method_path(@payment_method) %>
+<div>
+    <p><%= link_to 'Editar meio de pagamento', edit_admin_payment_method_path(@payment_method) %></p>
+</div>

@@ -3,9 +3,9 @@ require 'rails_helper'
 describe 'admin view payment method' do
     it 'successfully' do
         pay_method1 = PaymentMethod.create!(name: 'Boleto do banco laranja', tax_porcentage: 5,
-                                             tax_maximum: 80, status: true)
+                                             tax_maximum: 80, status: true, payment_type: :boleto)
         pay_method2 = PaymentMethod.create!(name: 'Cartão de crédito MestreCard', tax_porcentage: 10,
-                                             tax_maximum: 95, status: false)
+                                             tax_maximum: 95, status: false, payment_type: :card)
         
         admin_login
         visit root_path
@@ -31,7 +31,7 @@ describe 'admin view payment method' do
 
     it 'and view detail' do
         pay_method = PaymentMethod.create!(name: 'Boleto do banco laranja', tax_porcentage: 5,
-                                            tax_maximum: 80, status: true)
+                                            tax_maximum: 80, status: true, payment_type: :boleto)
         admin_login
         visit root_path
         click_on 'Meios de pagamento'
@@ -41,5 +41,6 @@ describe 'admin view payment method' do
         expect(page).to have_content('5,0%')
         expect(page).to have_content('R$ 80,00')
         expect(page).to have_content('Ativo')
+        expect(page).to have_css('img[src*="boleto.png"]')
     end
 end

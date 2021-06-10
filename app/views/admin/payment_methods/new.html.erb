@@ -9,6 +9,8 @@
     <%= form.number_field :tax_maximum %>
     <%= form.label :status, 'Status' %>
     <%= form.select :status, [['Ativo', true], ['Inativo', false]] %>
+    <%= form.label :payment_type, 'Tipos de pagamento' %>
+    <%= form.select :payment_type, [['boleto', :boleto], ['cartão', :card], ['pix', :pix]], include_blank: 'escolha' %>
     <%= form.submit 'Cadastrar' %>
 <% end %>
 

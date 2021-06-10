@@ -11,6 +11,7 @@ describe 'admin creates payment method' do
         fill_in 'Taxa de cobrança', with: 15
         fill_in 'Taxa máxima', with: 120
         select 'Ativo', from: 'Status'
+        select 'cartão', from: 'Tipos de pagamento'
         click_on 'Cadastrar'
 
         expect(current_path).to eq(admin_payment_method_path(PaymentMethod.last))
@@ -29,14 +30,15 @@ describe 'admin creates payment method' do
         fill_in 'Nome', with: ''
         fill_in 'Taxa de cobrança', with: ''
         fill_in 'Taxa máxima', with: ''
+        select 'escolha', from: 'Tipos de pagamento'
         click_on 'Cadastrar'
 
-        expect(page).to have_content('não pode ficar em branco', count: 3)
+        expect(page).to have_content('não pode ficar em branco', count: 4)
     end
 
     it 'and name must be unique' do
         PaymentMethod.create!(name: 'Cartão do banco laranja', tax_porcentage: 5,
-                              tax_maximum: 80, status: true)
+                              tax_maximum: 80, status: true, payment_type: :card)
 
         admin_login
         visit root_path

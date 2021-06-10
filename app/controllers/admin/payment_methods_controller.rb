@@ -36,7 +36,7 @@ class Admin::PaymentMethodsController < Admin::AdminController
     private
 
         def payment_method_params
-            params.require(:payment_method).permit(:name, :tax_porcentage, :tax_maximum, :status)
+            params.require(:payment_method).permit(:name, :tax_porcentage, :tax_maximum, :status, :payment_type)
         end
 
         def set_payment_method
