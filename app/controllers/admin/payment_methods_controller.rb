@@ -1,5 +1,5 @@
 class Admin::PaymentMethodsController < Admin::AdminController
-    before_action :set_payment_method, only: %i[show edit update]
+    before_action :set_payment_method, only: %i[show edit update destroy]
 
     def index
         @payment_methods = PaymentMethod.all
@@ -31,6 +31,11 @@ class Admin::PaymentMethodsController < Admin::AdminController
         else
             render :edit
         end
+    end
+
+    def destroy
+        @payment_method.destroy
+        redirect_to admin_payment_methods_path
     end
 
     private
