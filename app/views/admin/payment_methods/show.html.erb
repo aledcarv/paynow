@@ -12,8 +12,7 @@
 <%= image_tag @payment_method.icon_payment_type %>
 
 <div>
-    <p><%= link_to 'Editar meio de pagamento', edit_admin_payment_method_path(@payment_method) %></p>
-    <p>
-    </p>
+    <%= link_to 'Editar meio de pagamento', edit_admin_payment_method_path(@payment_method) %>
     <%= link_to 'Apagar meio de pagamento', [:admin, @payment_method], method: :delete %>
+    <%= link_to 'Voltar', admin_payment_methods_path %>
 </div>

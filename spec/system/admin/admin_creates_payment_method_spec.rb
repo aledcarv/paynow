@@ -53,4 +53,17 @@ describe 'admin creates payment method' do
 
         expect(page).to have_content('já está em uso')
     end
+
+    it 'and return to payment methods page' do
+        PaymentMethod.create!(name: 'Boleto do banco laranja', tax_porcentage: 5,
+                              tax_maximum: 80, status: true, payment_type: :boleto)
+
+        admin_login
+        visit root_path
+        click_on 'Meios de pagamento'
+        click_on 'Cadastrar um meio de pagamento'
+        click_on 'Voltar'
+
+        expect(current_path).to eq(admin_payment_methods_path)
+    end
 end
