@@ -1,15 +1,15 @@
-<h1>Editar meio de pagamento</h1>
+<h1><%= t('.title') %></h1>
 
 <%= form_with model: [:admin, @payment_method] do |form| %>
-    <%= form.label :name, 'Nome' %>
+    <%= form.label :name %>
     <%= form.text_field :name %>
-    <%= form.label :tax_porcentage, 'Taxa de cobrança' %>
+    <%= form.label :tax_porcentage %>
     <%= form.number_field :tax_porcentage %>
-    <%= form.label :tax_maximum, 'Taxa máxima' %>
+    <%= form.label :tax_maximum %>
     <%= form.number_field :tax_maximum %>
-    <%= form.label :status, 'Status' %>
+    <%= form.label :status %>
     <%= form.select :status, [['Ativo', true], ['Inativo', false]] %>
-    <%= form.submit 'Editar' %>
+    <%= form.submit t('.edit') %>
 <% end %>
 
 <% if @payment_method.errors.any? %>
@@ -21,4 +21,4 @@
     </ul>
 <% end %>
 
-<%= link_to 'Voltar', [:admin, @payment_method] %>
+<%= link_to t('.back'), [:admin, @payment_method] %>

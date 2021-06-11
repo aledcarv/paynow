@@ -1,7 +1,7 @@
-<h1>Meios de pagamento</h1>
+<h1><%= t('.title') %></h1>
 
 <% if @payment_methods.empty? %>
-    <h3><%= 'Nenhum meio de pagamento disponível' %></h3>
+    <h3><%= t('.no_payment_method_available') %></h3>
 <% end %>
 
 <% @payment_methods.each do |pay_method| %>
@@ -13,5 +13,5 @@
 <hr>
 
 <div>
-    <p><%= link_to 'Cadastrar um meio de pagamento', new_admin_payment_method_path %></p>
+    <p><%= link_to t('.register_payment_method'), new_admin_payment_method_path %></p>
 </div>

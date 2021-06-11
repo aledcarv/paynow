@@ -1,0 +1,31 @@
+---
+pt-BR:
+  activerecord:
+    models:
+      payment_method:
+        one: Meio de pagamento
+        other: Meios de pagamento
+    attributes:
+      payment_method:
+        name: Nome
+        tax_porcentage: Taxa de cobrança
+        tax_maximum: Taxa máxima
+        status: Status
+        payment_type: Tipos de pagamento
+  admin:
+    payment_methods:
+      edit:
+        title: Editar meio de pagamento
+        back: Voltar
+        edit: Editar
+      index:
+        title: Meios de pagamento
+        no_payment_method_available: Nenhum meio de pagamento disponível
+        register_payment_method: Cadastrar um meio de pagamento
+      new:
+        register: Cadastrar
+        back: Voltar
+      show:
+        edit_payment_method: Editar meio de pagamento
+        delete_payment_method: Apagar meio de pagamento
+        back: Voltar
