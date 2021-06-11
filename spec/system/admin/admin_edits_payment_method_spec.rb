@@ -73,4 +73,13 @@ describe 'admin edits payment method' do
 
         expect(current_path).to eq(admin_payment_method_path(pay_method))
     end
+
+    it 'and can not access payment method edit through route' do
+        pay_method = PaymentMethod.create!(name: 'Boleto do banco laranja', tax_porcentage: 5,
+                                           tax_maximum: 80, status: true, payment_type: :boleto)
+
+        visit edit_admin_payment_method_path(pay_method)
+
+        expect(current_path).to eq(new_admin_session_path)
+    end
 end

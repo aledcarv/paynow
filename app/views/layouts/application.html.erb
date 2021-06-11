@@ -13,28 +13,19 @@
   <body>
     <p><%= link_to 'Meios de pagamentos', admin_payment_methods_path %></p>
     <% if admin_signed_in? %>
-      <p>
-        <%= current_admin.email %>
-      </p>
-
-      <p>
-        <%= link_to 'Sair', destroy_admin_session_path, method: :delete %>
-      </p>
+      <p><%= current_admin.email %></p>
+      <p><%= link_to 'Sair', destroy_admin_session_path, method: :delete %></p>
     <% else %>
       <p><%= link_to 'Entrar', new_admin_session_path %></p>
     <% end %>
     <% if notice %>
       <div>
-        <p>
-          <%= notice %>
-        </p>
+        <p><%= notice %></p>
       </div>
     <% end %>
     <% if alert %>
       <div>
-        <p>
-          <%= alert %>
-        </p>
+        <p><%= alert %></p>
       </div>
     <% end %>
 

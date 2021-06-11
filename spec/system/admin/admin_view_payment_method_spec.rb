@@ -56,4 +56,26 @@ describe 'admin view payment method' do
 
         expect(current_path).to eq(admin_payment_methods_path)
     end
+
+    it 'and must be logged in to view payment methods through button' do
+        visit root_path
+        click_on 'Meios de pagamentos'
+
+        expect(current_path).to eq(new_admin_session_path)
+    end
+
+    it 'and must be logged in to view payment methods through route' do
+        visit admin_payment_methods_path
+
+        expect(current_path).to eq(new_admin_session_path)
+    end
+
+    it 'and must be logged in to view payment method through route' do
+        pay_method = PaymentMethod.create!(name: 'Boleto do banco laranja', tax_porcentage: 5,
+                                           tax_maximum: 80, status: true, payment_type: :boleto)
+
+        visit admin_payment_method_path(pay_method)
+    
+        expect(current_path).to eq(new_admin_session_path)
+      end
 end

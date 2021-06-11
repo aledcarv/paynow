@@ -66,4 +66,10 @@ describe 'admin creates payment method' do
 
         expect(current_path).to eq(admin_payment_methods_path)
     end
+
+    it 'and can not access payment method new through route' do
+        visit new_admin_payment_method_path
+
+        expect(current_path).to eq(new_admin_session_path)
+    end
 end

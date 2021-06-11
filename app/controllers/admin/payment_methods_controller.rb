@@ -1,4 +1,5 @@
 class Admin::PaymentMethodsController < Admin::AdminController
+    before_action :authenticate_admin!, only: %i[index show edit new]
     before_action :set_payment_method, only: %i[show edit update destroy]
 
     def index
