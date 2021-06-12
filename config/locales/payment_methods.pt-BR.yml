@@ -25,7 +25,11 @@ pt-BR:
       new:
         register: Cadastrar
         back: Voltar
+      update:
+        success: Meio de pagamento atualizado com sucesso
       show:
         edit_payment_method: Editar meio de pagamento
         delete_payment_method: Apagar meio de pagamento
         back: Voltar
+      destroy:
+        success: Meio de pagamento apagado com sucesso

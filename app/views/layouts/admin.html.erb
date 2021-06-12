@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Paynow</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <p><%= link_to 'Meios de pagamentos', admin_payment_methods_path %></p>
+    
+    <% if admin_signed_in? %>
+      <p><%= current_admin.email %></p>
+      <p><%= link_to 'Sair', destroy_admin_session_path, method: :delete %></p>
+    <% else %>
+      <p><%= link_to 'Entrar', new_admin_session_path %></p>
+    <% end %>
+
+    <% if notice %>
+      <div>
+        <p><%= notice %></p>
+      </div>
+    <% end %>
+    <% if alert %>
+      <div>
+        <p><%= alert %></p>
+      </div>
+    <% end %>
+
+    <%= yield %>
+  </body>
+</html>

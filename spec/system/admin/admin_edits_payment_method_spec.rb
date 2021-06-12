@@ -22,6 +22,7 @@ describe 'admin edits payment method' do
         expect(page).to have_content('5,0%')
         expect(page).to have_content('R$ 90,00')
         expect(page).to have_content('Inativo')
+        expect(page).to have_content('Meio de pagamento atualizado com sucesso')
     end
 
     it 'and can not be blank' do

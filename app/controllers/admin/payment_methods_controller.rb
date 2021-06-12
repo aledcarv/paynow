@@ -28,7 +28,7 @@ class Admin::PaymentMethodsController < Admin::AdminController
 
     def update
         if @payment_method.update(payment_method_params)
-            redirect_to [:admin, @payment_method]
+            redirect_to [:admin, @payment_method], notice: t('.success')
         else
             render :edit
         end
@@ -36,7 +36,7 @@ class Admin::PaymentMethodsController < Admin::AdminController
 
     def destroy
         @payment_method.destroy
-        redirect_to admin_payment_methods_path
+        redirect_to admin_payment_methods_path, notice: t('.success')
     end
 
     private
