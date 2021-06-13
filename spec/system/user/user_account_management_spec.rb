@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'admin account management' do
+describe 'user account management' do
     context 'register' do
         it 'successfully' do
             visit root_path

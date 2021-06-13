@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :email, format: { without: /\b[A-Z0-9._%a-z\-]+@(gmail|hotmail|yahoo|paynow)/ }
+
+  belongs_to :company, optional: true
 end

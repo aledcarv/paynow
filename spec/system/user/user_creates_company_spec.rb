@@ -34,7 +34,7 @@ describe 'user creates company' do
         expect(page).to have_content('não pode ficar em branco', count: 4)
     end
 
-    it 'and attributes must be uniques' do
+    it 'and attributes must be unique' do
         Company.create!(name: 'Codeplay', cnpj: '12365478910111', 
                         financial_adress: 'Rua Joãozinho', 
                         financial_email: 'faturamento@codeplay.com.br')
