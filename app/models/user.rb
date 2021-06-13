@@ -3,4 +3,6 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  validates :email, format: { without: /\b[A-Z0-9._%a-z\-]+@(gmail|hotmail|yahoo|paynow)/ }
 end

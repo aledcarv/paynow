@@ -42,7 +42,6 @@ describe 'admin management account' do
             expect(page).to have_content('Saiu com sucesso')
             expect(page).to_not have_content('gonzaga@paynow.com.br')
             expect(page).to_not have_link('Sair', href: destroy_admin_session_path)
-            expect(page).to have_link('Entrar', href: new_admin_session_path)
         end
     end
 

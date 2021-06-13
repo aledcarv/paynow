@@ -3,3 +3,9 @@ def admin_login
 
     login_as admin, scope: :admin
 end
+
+def user_login
+    user = User.create!(email: 'cartola@codeplay.com.br', password: '012345')
+    
+    login_as user, scope: :user
+end
