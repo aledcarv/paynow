@@ -7,6 +7,11 @@
     <dd><%= @company.financial_adress %></dd>
     <dt>Email de faturamento:</dt>
     <dd><%= @company.financial_email %></dd>
+    <dt>Token</dt>
+    <dd><%= @company.token %></dd>
 </dl>
 
-<%= link_to 'Editar empresa', edit_user_company_path(@company) %>
+<% if current_user.company_admin? %>
+    <%= link_to 'Gere um novo token', token_generator_user_company_path(@company), method: :put %>
+    <%= link_to 'Editar empresa', edit_user_company_path(@company) %>
+<% end %>

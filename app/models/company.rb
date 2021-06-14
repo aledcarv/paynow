@@ -2,8 +2,15 @@ class Company < ApplicationRecord
     validates :name, :cnpj, :financial_adress, :financial_email, presence: true
     validates :name, :cnpj, :financial_adress, :financial_email, uniqueness: true
     validates :cnpj, length: { is: 14 }
-
-    has_secure_token, length = 20
-
+    
     has_many :users
+    
+    before_create :token_generator
+
+    private
+
+        def token_generator
+            self.token = SecureRandom.base58(20)
+            token_generator if Company.where(token: token).exists?
+        end
 end

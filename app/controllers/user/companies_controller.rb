@@ -1,5 +1,5 @@
 class User::CompaniesController < User::UserController
-    before_action :set_company, only: %i[show edit update]
+    before_action :set_company, only: %i[show edit update token_generator]
 
     def new
         @company = Company.new
@@ -29,6 +29,15 @@ class User::CompaniesController < User::UserController
             redirect_to [:user, @company]
         else
             render :edit
+        end
+    end
+
+    def token_generator
+        @company.token = SecureRandom.base58(20)
+        if @company.save
+            redirect_to user_company_path(@company), notice: 'token atualizado com sucesso'
+        else
+            redirect_to user_company_path(@company), alert: 'A atualização falhou' 
         end
     end
 

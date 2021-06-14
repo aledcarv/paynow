@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   end
 
   namespace :user do
-    resources :companies, only: %i[new create show edit update]
+    resources :companies, only: %i[new create show edit update] do
+      put 'token_generator', on: :member
+    end
   end
 end

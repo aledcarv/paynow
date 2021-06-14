@@ -37,7 +37,8 @@ describe 'user creates company' do
     it 'and attributes must be unique' do
         Company.create!(name: 'Codeplay', cnpj: '12365478910111', 
                         financial_adress: 'Rua Joãozinho', 
-                        financial_email: 'faturamento@codeplay.com.br')
+                        financial_email: 'faturamento@codeplay.com.br',
+                        token: SecureRandom.base58(20))
 
         user_login
         visit root_path
