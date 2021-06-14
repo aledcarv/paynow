@@ -8,6 +8,6 @@ Rails.application.routes.draw do
   end
 
   namespace :user do
-    resources :companies, only: %i[new create show]
+    resources :companies, only: %i[new create show edit update]
   end
 end

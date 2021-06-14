@@ -16,7 +16,11 @@
     <p><%= current_user.email %></p>
     <p><%= link_to 'Sair', destroy_user_session_path, method: :delete %></p>
 
-    <%= link_to 'Cadastrar empresa', new_user_company_path %>
+    <% if current_user.company_id %>
+      <%= link_to 'Minha empresa', user_company_path(current_user.company_id) %>
+    <% else %>
+      <%= link_to 'Cadastrar empresa', new_user_company_path %>
+    <% end %>
 
     <% if notice %>
       <div>
