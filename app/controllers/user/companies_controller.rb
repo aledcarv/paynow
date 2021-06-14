@@ -35,9 +35,9 @@ class User::CompaniesController < User::UserController
     def token_generator
         @company.token = SecureRandom.base58(20)
         if @company.save
-            redirect_to user_company_path(@company), notice: 'token atualizado com sucesso'
+            redirect_to user_company_path(@company), notice: t('.success')
         else
-            redirect_to user_company_path(@company), alert: 'A atualização falhou' 
+            redirect_to user_company_path(@company), alert: t('.alert') 
         end
     end
 

@@ -1,0 +1,24 @@
+---
+pt-BR:
+  activerecord:
+    models:
+      company:
+        one: Empresa
+        other: empresas
+    attributes:
+      company:
+        name: Razão Social
+        cnpj: CNPJ
+        financial_adress: Endereço de faturamento
+        financial_email: Email de faturamento
+  user:
+    companies:
+      edit:
+        title: Edite sua empresa
+        edit: Editar
+      new:
+        title: Cadastre sua empresa
+        register: Cadastrar
+      token_generator:
+        success: token atualizado com sucesso
+        alert: A atualização falhou 

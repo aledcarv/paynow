@@ -1,0 +1,20 @@
+<%= form_with model: [:user, company] do |form| %>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+    <%= form.label :cnpj %>
+    <%= form.text_field :cnpj %>
+    <%= form.label :financial_adress %>
+    <%= form.text_field :financial_adress %>
+    <%= form.label :financial_email %>
+    <%= form.text_field :financial_email %>
+    <%= form.submit submit_text %>
+<% end %>
+
+<% if company.errors.any? %>
+    <p>Total de erro(s): <%= company.errors.count %></p>
+    <ul>
+        <% company.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+        <% end %>
+    </ul>
+<% end %>

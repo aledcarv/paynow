@@ -1,20 +1,3 @@
-<%= form_with model: [:user, @company] do |form| %>
-    <%= form.label :name, 'Razão Social' %>
-    <%= form.text_field :name %>
-    <%= form.label :cnpj, 'CNPJ' %>
-    <%= form.text_field :cnpj %>
-    <%= form.label :financial_adress, 'Endereço de faturamento'  %>
-    <%= form.text_field :financial_adress %>
-    <%= form.label :financial_email, 'Email de faturamento' %>
-    <%= form.text_field :financial_email %>
-    <%= form.submit 'Editar' %>
-<% end %>
+<h1><%= t('.title') %></h1>
 
-<% if @company.errors.any? %>
-    <p>Total de erro(s): <%= @company.errors.count %></p>
-    <ul>
-        <% @company.errors.each do |error| %>
-            <li><%= error.full_message %></li>
-        <% end %>
-    </ul>
-<% end %>
+<%= render 'form', company: @company, submit_text: t('.edit') %>

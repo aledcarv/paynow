@@ -67,6 +67,7 @@ describe 'user edits company' do
         expect { click_on 'Gere um novo token' }.to change { Company.last.token }
         
         expect(current_path).to eq(user_company_path(company))
+        expect(page).to have_content('token atualizado com sucesso')
         expect(page).to have_content(Company.last.token)
     end
 end
