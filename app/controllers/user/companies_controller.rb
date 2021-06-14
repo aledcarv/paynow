@@ -7,6 +7,9 @@ class User::CompaniesController < User::UserController
         @company = Company.new(company_params)
 
         if @company.save
+            current_user.company_admin!
+            current_user.company = @company
+            current_user.save
             redirect_to [:user, @company]
         else
             render :new

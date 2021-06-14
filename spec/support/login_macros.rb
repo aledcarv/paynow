@@ -5,7 +5,7 @@ def admin_login
 end
 
 def user_login
-    user = User.create!(email: 'cartola@codeplay.com.br', password: '012345')
+    user = User.create!(email: 'cartola@codeplay.com.br', password: '012345', role: 0)
     
     login_as user, scope: :user
 end
