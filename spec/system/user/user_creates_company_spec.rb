@@ -52,4 +52,21 @@ describe 'user creates company' do
 
         expect(page).to have_content('já está em uso')
     end
+
+    it 'and must be logged in to access company route' do
+        company = Company.create!(name: 'Codeplay', cnpj: '12365478910111',
+                                  financial_adress: 'Rua Joãozinho',
+                                  financial_email: 'faturamento@codeplay.com.br',
+                                  token: SecureRandom.base58(20))
+        
+        visit user_company_path(company)
+
+        expect(current_path).to eq(new_user_session_path)
+    end
+
+    it 'and must be logged in to access new company route' do        
+        visit new_user_company_path
+
+        expect(current_path).to eq(new_user_session_path)
+    end
 end

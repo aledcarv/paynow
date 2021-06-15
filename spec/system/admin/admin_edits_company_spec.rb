@@ -65,4 +65,15 @@ describe 'admin edits company' do
         expect(page).to have_content('token atualizado com sucesso')
         expect(page).to have_content(Company.last.token)
     end
+
+    it 'and can not access edit route with login' do
+        company = Company.create!(name: 'Codeplay', cnpj: '12365478910111',
+                                  financial_adress: 'Rua Joãozinho',
+                                  financial_email: 'faturamento@codeplay.com.br',
+                                  token: SecureRandom.base58(20))
+        
+        visit edit_admin_company_path(company)
+
+        expect(current_path).to eq(new_admin_session_path)
+    end
 end
