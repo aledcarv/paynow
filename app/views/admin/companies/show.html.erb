@@ -11,4 +11,6 @@
     <dd><%= @company.token %></dd>
 </dl>
 
+<%= link_to 'Editar empresa', edit_admin_company_path(@company) %>
+<%= link_to 'Gere um novo token', token_generator_admin_company_path(@company), method: :put %>
 <%= link_to 'Voltar', admin_companies_path %>

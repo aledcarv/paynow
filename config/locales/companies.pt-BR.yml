@@ -21,4 +21,4 @@ pt-BR:
         register: Cadastrar
       token_generator:
         success: token atualizado com sucesso
-        alert: A atualização falhou 
+        alert: A atualização falhou
