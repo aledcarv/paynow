@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :payment_methods
+    resources :companies, only: %i[index show]
   end
 
   namespace :user do
