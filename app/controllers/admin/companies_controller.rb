@@ -1,19 +1,17 @@
 class Admin::CompaniesController < Admin::AdminController
+    before_action :set_company, only: %i[show edit update token_generator]
+
     def index
         @companies = Company.all
     end
 
     def show
-        @company = Company.find(params[:id])
     end
 
     def edit
-        @company = Company.find(params[:id])
     end
 
     def update
-        @company = Company.find(params[:id])
-
         if @company.update(company_params)
             redirect_to [:admin, @company]
         else
@@ -22,12 +20,11 @@ class Admin::CompaniesController < Admin::AdminController
     end
 
     def token_generator
-        @company = Company.find(params[:id])
         @company.token = SecureRandom.base58(20)
         if @company.save
-            redirect_to admin_company_path(@company), notice: 'token atualizado com sucesso'
+            redirect_to admin_company_path(@company), notice: t('.success')
         else
-            redirect_to admin_company_path(@company), alert: 'A atualização falhou'
+            redirect_to admin_company_path(@company), alert: t('alert')
         end
     end
 
@@ -35,5 +32,9 @@ class Admin::CompaniesController < Admin::AdminController
 
         def company_params
             params.require(:company).permit(:name, :cnpj, :financial_adress, :financial_email)
+        end
+
+        def set_company
+            @company = Company.find(params[:id])
         end
 end

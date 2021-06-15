@@ -19,6 +19,24 @@ pt-BR:
       new:
         title: Cadastre sua empresa
         register: Cadastrar
+      show:
+        generate_token: Gere um novo token
+        edit_company: Editar empresa
+      token_generator:
+        success: token atualizado com sucesso
+        alert: A atualização falhou
+  admin:
+    companies:
+      edit:
+        title: Editar empresa
+        edit: Editar
+      index:
+        title: Empresa
+        no_company_available: Nenhuma empresa disponível
+      show:
+        edit_company: Editar empresa
+        generate_token: Gere um novo token
+        back: Voltar
       token_generator:
         success: token atualizado com sucesso
         alert: A atualização falhou

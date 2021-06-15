@@ -12,6 +12,6 @@
 </dl>
 
 <% if current_user.company_admin? %>
-    <%= link_to 'Gere um novo token', token_generator_user_company_path(@company), method: :put %>
-    <%= link_to 'Editar empresa', edit_user_company_path(@company) %>
+    <%= link_to t('.generate_token'), token_generator_user_company_path(@company), method: :put %>
+    <%= link_to t('.edit_company'), edit_user_company_path(@company) %>
 <% end %>

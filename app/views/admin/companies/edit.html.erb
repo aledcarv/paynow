@@ -1,15 +1,15 @@
-<h1>Editar empresa</h1>
+<h1><%= t('.title') %></h1>
 
 <%= form_with model: [:admin, @company] do |form| %>
-    <%= form.label :name, 'Razão Social' %>
+    <%= form.label :name %>
     <%= form.text_field :name %>
-    <%= form.label :cnpj, 'CNPJ' %>
+    <%= form.label :cnpj %>
     <%= form.text_field :cnpj %>
-    <%= form.label :financial_adress, 'Endereço de faturamento' %>
+    <%= form.label :financial_adress %>
     <%= form.text_field :financial_adress %>
-    <%= form.label :financial_email, 'Email de faturamento' %>
+    <%= form.label :financial_email %>
     <%= form.text_field :financial_email %>
-    <%= form.submit 'Editar' %>
+    <%= form.submit t('.edit') %>
 <% end %>
 
 <% if @company.errors.any? %>
