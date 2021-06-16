@@ -17,6 +17,7 @@
 
     <% if current_user.company_id %>
       <%= link_to 'Minha empresa', user_company_path(current_user.company_id) %>
+      <%= link_to 'Meios de pagamento', user_payment_methods_path %>
     <% else %>
       <%= link_to 'Cadastrar empresa', new_user_company_path %>
     <% end %>

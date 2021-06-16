@@ -5,6 +5,8 @@ class PaymentMethod < ApplicationRecord
     enum payment_type: { boleto: 1, card: 2, pix: 3 }
     after_create :attach_icon_pay_type
 
+    scope :available, -> { where(status: true) }
+
     private
 
         def attach_icon_pay_type

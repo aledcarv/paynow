@@ -1,0 +1,9 @@
+<h1>Meios de pagamento</h1>
+
+<% if @payment_methods.empty? %>
+    <h3>Nenhum meio de pagamento disponível</h3>
+<% end %>
+
+<% @payment_methods.each do |payment_method| %>
+    <h3><%= link_to payment_method.name, [:user, payment_method] %></h3>
+<% end %>
