@@ -59,4 +59,19 @@ describe 'user view avaoçabçe payment methods' do
 
         expect(current_path).to eq(user_payment_methods_path)
     end
+
+    it 'and must be logged in to access route' do
+        visit user_payment_methods_path
+
+        expect(current_path).to eq(new_user_session_path)
+    end
+
+    it 'and must be logged in to access show route' do
+        pay_method = PaymentMethod.create!(name: 'Cartão de crédito MestreCard', tax_porcentage: 10,
+                                          tax_maximum: 95, status: true, payment_type: :card)
+        
+        visit user_payment_method_path(pay_method)
+
+        expect(current_path).to eq(new_user_session_path)
+    end
 end
