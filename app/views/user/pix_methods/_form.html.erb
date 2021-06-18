@@ -1,0 +1,16 @@
+<%= form_with model: [:user, payment_method, pix_method] do |form| %>
+    <%= form.label :bank_code, 'Código do banco' %>
+    <%= form.text_field :bank_code %>
+    <%= form.label :key_pix, 'Chave pix' %>
+    <%= form.text_field :key_pix %>
+    <%= form.submit submit_text %>
+<% end %>
+
+<% if pix_method.errors.any? %>
+    <p>Total de erro(s): <%= pix_method.errors.count %></p>
+    <ul>
+        <% pix_method.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+        <% end %>
+    </ul>
+<% end %>

@@ -22,16 +22,33 @@
     <p>Nenhum meio de pagamento boleto selecionado</p>
 <% else %>
     <% @company.boleto_methods.each do |boleto_method| %>
-    <div>
-        <h3><%= boleto_method.payment_method.name %></h3>
-        <p><%= boleto_method.bank_code %></p>
-        <p><%= boleto_method.agency_number %></p>
-        <p><%= boleto_method.bank_account %></p>
-        
         <div>
-            <%= link_to 'Editar meio de pagamento - boleto', edit_user_payment_method_boleto_method_path(boleto_method) %>
-            <%= link_to 'Apagar', user_payment_method_boleto_method_path(boleto_method), method: :delete %>
+            <h3><%= boleto_method.payment_method.name %></h3>
+            <p><%= boleto_method.bank_code %></p>
+            <p><%= boleto_method.agency_number %></p>
+            <p><%= boleto_method.bank_account %></p>
+            
+            <div>
+                <%= link_to 'Editar meio de pagamento - boleto', edit_user_payment_method_boleto_method_path(boleto_method) %>
+                <%= link_to 'Apagar', user_payment_method_boleto_method_path(boleto_method), method: :delete %>
+            </div>
         </div>
-    </div>
+    <% end %>
+<% end %>
+
+<% if @company.pix_methods.empty? %>
+    <p>Nenhum meio de pagamento pix selecionado</p>
+<% else %>
+    <% @company.pix_methods.each do |pix_method| %>
+        <div>
+            <h3><%= pix_method.payment_method.name %></h3>
+            <p><%= pix_method.bank_code %></p>
+            <p><%= pix_method.key_pix %></p>
+
+            <div>
+                <%= link_to 'Editar meio de pagamento - pix', edit_user_payment_method_pix_method_path(pix_method) %>
+                <%= link_to 'Apagar', user_payment_method_pix_method_path(pix_method), method: :delete %>
+            </div>
+        </div>
     <% end %>
 <% end %>

@@ -8,6 +8,7 @@ class PaymentMethod < ApplicationRecord
     scope :available, -> { where(status: true) }
 
     has_many :boleto_methods
+    has_many :pix_methods
 
     private
 

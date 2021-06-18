@@ -5,9 +5,6 @@ RSpec.describe BoletoMethod, type: :model do
   it { should validate_presence_of(:agency_number) }
   it { should validate_presence_of(:bank_account) }
 
-  it { should validate_numericality_of(:bank_code).is_greater_than_or_equal_to(0) }
-  it { should validate_numericality_of(:agency_number).is_greater_than_or_equal_to(0) }
-  it { should validate_numericality_of(:bank_account).is_greater_than_or_equal_to(0) }
   it { should validate_length_of(:bank_code).is_equal_to(3) }
   it { should validate_length_of(:agency_number).is_equal_to(4) }
 

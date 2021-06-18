@@ -7,6 +7,7 @@ class Company < ApplicationRecord
     
     has_many :users
     has_many :boleto_methods
+    has_many :pix_methods
 
     private
 

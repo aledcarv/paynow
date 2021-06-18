@@ -11,6 +11,10 @@
 
 <%= image_tag @payment_method.icon_payment_type %>
 
-<%= link_to 'Selecionar este meio de pagamento', new_user_payment_method_boleto_method_path(@payment_method) %>
+<% if @payment_method.boleto? %>
+    <%= link_to 'Selecionar este meio de pagamento', new_user_payment_method_boleto_method_path(@payment_method) %>
+<% elsif @payment_method.pix? %>
+    <%= link_to 'Selecionar este meio de pagamento', new_user_payment_method_pix_method_path(@payment_method) %>
+<% end %>
 
 <%= link_to 'Voltar', user_payment_methods_path %>
