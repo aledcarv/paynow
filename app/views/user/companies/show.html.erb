@@ -15,3 +15,22 @@
     <%= link_to t('.generate_token'), token_generator_user_company_path(@company), method: :put %>
     <%= link_to t('.edit_company'), edit_user_company_path(@company) %>
 <% end %>
+
+<h2>Meios de pagamento selecionados</h2>
+
+<% if @company.boleto_methods.empty? %>
+    <p>Nenhum meio de pagamento boleto selecionado</p>
+<% else %>
+    <% @company.boleto_methods.each do |boleto_method| %>
+    <div>
+        <h3><%= boleto_method.payment_method.name %></h3>
+        <p><%= boleto_method.bank_code %></p>
+        <p><%= boleto_method.agency_number %></p>
+        <p><%= boleto_method.bank_account %></p>
+        
+        <div>
+            <%= link_to 'Editar meio de pagamento - boleto', edit_user_payment_method_boleto_method_path(boleto_method) %>
+        </div>
+    </div>
+    <% end %>
+<% end %>

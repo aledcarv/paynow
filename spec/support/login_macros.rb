@@ -16,7 +16,7 @@ def user_admin_login
                               financial_email: 'faturamento@codeplay.com.br',
                               token: SecureRandom.base58(20))
     
-    user = User.create(email: 'baden@codeplay.com.br', password: '012345', 
+    user = User.create!(email: 'baden@codeplay.com.br', password: '012345', 
                        role: 10, company_id: company.id)
     
     login_as user, scope: :user

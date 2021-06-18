@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'user view avaoçabçe payment methods' do
+describe 'user view available payment methods' do
     it 'successfully' do
         PaymentMethod.create!(name: 'Boleto do banco laranja', tax_porcentage: 5,
                               tax_maximum: 80, status: true, payment_type: :boleto)

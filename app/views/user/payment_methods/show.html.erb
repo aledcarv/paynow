@@ -11,4 +11,6 @@
 
 <%= image_tag @payment_method.icon_payment_type %>
 
+<%= link_to 'Selecionar este meio de pagamento', new_user_payment_method_boleto_method_path(@payment_method) %>
+
 <%= link_to 'Voltar', user_payment_methods_path %>

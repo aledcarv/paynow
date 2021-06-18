@@ -1,0 +1,18 @@
+<%= form_with model: [:user, payment_method, boleto_method] do |form| %>
+    <%= form.label :bank_code, 'Código do banco' %>
+    <%= form.text_field :bank_code %>
+    <%= form.label :agency_number, 'Número da agência' %>
+    <%= form.text_field :agency_number %>
+    <%= form.label :bank_account, 'Conta bancária' %>
+    <%= form.text_field :bank_account %>
+    <%= form.submit submit_text %>
+<% end %>
+
+<% if boleto_method.errors.any? %>
+    <p>Total de erro(s): <%= boleto_method.errors.count %></p>
+    <ul>
+        <% boleto_method.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+        <% end %>
+    </ul>
+<% end %>

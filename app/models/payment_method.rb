@@ -7,6 +7,8 @@ class PaymentMethod < ApplicationRecord
 
     scope :available, -> { where(status: true) }
 
+    has_many :boleto_methods
+
     private
 
         def attach_icon_pay_type
