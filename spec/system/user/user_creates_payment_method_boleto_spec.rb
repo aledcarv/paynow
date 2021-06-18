@@ -71,4 +71,18 @@ describe 'user wants payment method boleto' do
 
         expect(page).to have_content('já está em uso')
     end
+
+    it 'must be logged in to access route' do
+        pay_method = PaymentMethod.create!(name: 'Boleto do banco laranja', tax_porcentage: 5,
+                                           tax_maximum: 80, status: true, payment_type: :boleto)
+
+        company = Company.create!(name: 'Codeplay', cnpj: '12365478910111', 
+                                  financial_adress: 'Rua Joãozinho', 
+                                  financial_email: 'faturamento@codeplay.com.br',
+                                  token: SecureRandom.base58(20))
+
+        visit new_user_payment_method_boleto_method_path(pay_method)
+
+        expect(current_path).to eq(new_user_session_path)
+    end
 end
