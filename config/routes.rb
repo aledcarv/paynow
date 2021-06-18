@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   namespace :user do
     resources :payment_methods, only: %i[index show] do
-      resources :boleto_methods, only: %i[new create edit update]
+      resources :boleto_methods, only: %i[new create edit update destroy]
     end
     resources :companies, only: %i[new create show edit update] do
       put 'token_generator', on: :member

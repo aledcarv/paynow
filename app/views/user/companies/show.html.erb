@@ -30,6 +30,7 @@
         
         <div>
             <%= link_to 'Editar meio de pagamento - boleto', edit_user_payment_method_boleto_method_path(boleto_method) %>
+            <%= link_to 'Apagar', user_payment_method_boleto_method_path(boleto_method), method: :delete %>
         </div>
     </div>
     <% end %>

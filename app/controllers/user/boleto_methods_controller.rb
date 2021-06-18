@@ -35,6 +35,13 @@ class User::BoletoMethodsController < User::UserController
         end
     end
 
+    def destroy
+        @payment_method = PaymentMethod.find(params[:payment_method_id])
+        @boleto_method = BoletoMethod.find(params[:id])
+        @boleto_method.destroy
+        redirect_to user_company_path(current_user.company_id), notice: 'boleto apagado com sucesso'
+    end
+
     private
 
         def boleto_method_params
