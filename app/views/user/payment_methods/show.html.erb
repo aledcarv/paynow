@@ -15,6 +15,8 @@
     <%= link_to 'Selecionar este meio de pagamento', new_user_payment_method_boleto_method_path(@payment_method) %>
 <% elsif @payment_method.pix? %>
     <%= link_to 'Selecionar este meio de pagamento', new_user_payment_method_pix_method_path(@payment_method) %>
+<% elsif @payment_method.card? %>
+    <%= link_to 'Selecionar este meio de pagamento', new_user_payment_method_card_method_path(@payment_method) %>
 <% end %>
 
 <%= link_to 'Voltar', user_payment_methods_path %>

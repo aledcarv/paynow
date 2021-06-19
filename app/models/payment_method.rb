@@ -9,6 +9,7 @@ class PaymentMethod < ApplicationRecord
 
     has_many :boleto_methods
     has_many :pix_methods
+    has_many :card_methods
 
     private
 

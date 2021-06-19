@@ -1,0 +1,14 @@
+<%= form_with model: [:user, payment_method, card_method] do |form| %>
+    <%= form.label :card_code, 'Código do cartão' %>
+    <%= form.text_field :card_code %>
+    <%= form.submit submit_text %>
+<% end %>
+
+<% if card_method.errors.any? %>
+    <p>Total de erro(s): <%= card_method.errors.count %></p>
+    <ul>
+        <% card_method.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+        <% end %>
+    </ul>
+<% end %>

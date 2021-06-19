@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_18_142357) do
+ActiveRecord::Schema.define(version: 2021_06_19_024810) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -64,6 +64,16 @@ ActiveRecord::Schema.define(version: 2021_06_18_142357) do
     t.index ["payment_method_id"], name: "index_boleto_methods_on_payment_method_id"
   end
 
+  create_table "card_methods", force: :cascade do |t|
+    t.string "card_code"
+    t.integer "company_id", null: false
+    t.integer "payment_method_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["company_id"], name: "index_card_methods_on_company_id"
+    t.index ["payment_method_id"], name: "index_card_methods_on_payment_method_id"
+  end
+
   create_table "companies", force: :cascade do |t|
     t.string "cnpj"
     t.string "name"
@@ -115,6 +125,8 @@ ActiveRecord::Schema.define(version: 2021_06_18_142357) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "boleto_methods", "companies"
   add_foreign_key "boleto_methods", "payment_methods"
+  add_foreign_key "card_methods", "companies"
+  add_foreign_key "card_methods", "payment_methods"
   add_foreign_key "pix_methods", "companies"
   add_foreign_key "pix_methods", "payment_methods"
   add_foreign_key "users", "companies"

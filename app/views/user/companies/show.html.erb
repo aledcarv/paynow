@@ -52,3 +52,19 @@
         </div>
     <% end %>
 <% end %>
+
+<% if @company.card_methods.empty? %>
+    <p>Nenhum meio de pagamento cartão selecionado</p>
+<% else %>
+    <% @company.card_methods.each do |card_method| %>
+        <div>
+            <h3><%= card_method.payment_method.name %></h3>
+            <p><%= card_method.card_code %></p>
+
+            <div>
+                <%= link_to 'Editar meio de pagamento - cartão', edit_user_payment_method_card_method_path(card_method) %>
+                <%= link_to 'Apagar', user_payment_method_card_method_path(card_method), method: :delete %>
+            </div>
+        </div>
+    <% end %>
+<% end %>
