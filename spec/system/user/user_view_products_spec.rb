@@ -99,4 +99,30 @@ describe 'user view products' do
 
         expect(current_path).to eq(user_company_products_path(company))
     end
+
+    it 'and must be logged in to access route' do
+        company = Company.create!(name: 'Codeplay', cnpj: '12365478910111', 
+                                  financial_adress: 'Rua Joãozinho', 
+                                  financial_email: 'faturamento@codeplay.com.br',
+                                  token: SecureRandom.base58(20))
+
+        visit user_company_products_path(company)
+
+        expect(current_path).to eq(new_user_session_path)
+    end
+
+    it 'and must be logged in to access show route' do
+        company = Company.create!(name: 'Codeplay', cnpj: '12365478910111',
+                                  financial_adress: 'Rua Joãozinho', 
+                                  financial_email: 'faturamento@codeplay.com.br',
+                                  token: SecureRandom.base58(20))
+
+        product = Product.create!(name: 'Curso de Ruby', price: 30, boleto_discount: 0, 
+                                  pix_discount: 0, card_discount: 4, company: company,
+                                  token: SecureRandom.base58(20))
+
+        visit user_company_product_path(company, product)
+
+        expect(current_path).to eq(new_user_session_path)
+    end
 end

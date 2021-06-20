@@ -1,6 +1,7 @@
 class User::ProductsController < User::UserController
-    before_action :set_company, only: %i[show index new create edit update]
-    before_action :set_product, only: %i[show edit update]
+    before_action :authenticate_user!
+    before_action :set_company, only: %i[show index new create edit update destroy]
+    before_action :set_product, only: %i[show edit update destroy]
 
     def index
         @products = Product.all
@@ -32,7 +33,11 @@ class User::ProductsController < User::UserController
         else
             render :edit
         end
+    end
 
+    def destroy
+        @product.destroy
+        redirect_to user_company_products_path(@company), notice: 'Produto apagado com sucesso'
     end
 
     private
