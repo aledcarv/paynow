@@ -1,0 +1,22 @@
+<%= form_with model: [:user, @company, @product] do |form| %>
+    <%= form.label :name, 'Nome' %>
+    <%= form.text_field :name %>
+    <%= form.label :price, 'Preço' %>
+    <%= form.number_field :price %>
+    <%= form.label :boleto_discount, 'Desconto para boleto' %>
+    <%= form.number_field :boleto_discount %>
+    <%= form.label :pix_discount, 'Desconto para pix' %>
+    <%= form.number_field :pix_discount %>
+    <%= form.label :card_discount, 'Desconto para cartão' %>
+    <%= form.number_field :card_discount %>
+    <%= form.submit 'Cadastrar' %>
+<% end %>
+
+<% if @product.errors.any? %>
+    <p>Total de erro(s): <%= @product.errors.count %></p>
+    <ul>
+        <% @product.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+        <% end %>
+    </ul>
+<% end %>
