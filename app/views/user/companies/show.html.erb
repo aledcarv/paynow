@@ -12,9 +12,15 @@
 </dl>
 
 <% if current_user.company_admin? %>
-    <%= link_to t('.generate_token'), token_generator_user_company_path(@company), method: :put %>
-    <%= link_to t('.edit_company'), edit_user_company_path(@company) %>
+    <div>
+        <%= link_to t('.generate_token'), token_generator_user_company_path(@company), method: :put %>
+        <%= link_to t('.edit_company'), edit_user_company_path(@company) %>
+    </div>
 <% end %>
+
+<div>
+    <%= link_to 'Meus produtos', user_company_products_path(@company) %>
+</div>
 
 <h2>Meios de pagamento selecionados</h2>
 

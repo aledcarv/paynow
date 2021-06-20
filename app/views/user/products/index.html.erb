@@ -1,0 +1,10 @@
+<h1>Produtos da empresa</h1>
+
+<% if @products.empty? %>
+    <p>Nenhum produto disponível'</p>
+<% end %>
+
+<% @products.each do |product| %>
+    <h3><%= link_to product.name, [:user, @company, product] %></h3>
+    <p><%= number_to_currency product.price %></p>
+<% end %>

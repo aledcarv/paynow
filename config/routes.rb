@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     end
     resources :companies, only: %i[new create show edit update] do
       put 'token_generator', on: :member
+      resources :products, only: %i[index show]
     end
   end
 end
