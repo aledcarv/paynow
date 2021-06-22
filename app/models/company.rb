@@ -10,6 +10,8 @@ class Company < ApplicationRecord
     has_many :pix_methods
     has_many :card_methods
     has_many :products
+    has_many :final_client_companies
+    has_many :final_clients, through: :final_client_companies
 
     private
 
