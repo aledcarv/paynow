@@ -5,8 +5,6 @@ class Api::V1::FinalClientsController < Api::V1::ApiController
         @final_client.save!
         @client_company =  FinalClientCompany.create(final_client: @final_client, company: @company)
         render json: @final_client, status: :created
-    rescue ActiveRecord::RecordInvalid
-        render json: @final_client.errors, status: :unprocessable_entity
     end
 
     private

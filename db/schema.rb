@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_21_141242) do
+ActiveRecord::Schema.define(version: 2021_06_22_223907) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -72,6 +72,24 @@ ActiveRecord::Schema.define(version: 2021_06_21_141242) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["company_id"], name: "index_card_methods_on_company_id"
     t.index ["payment_method_id"], name: "index_card_methods_on_payment_method_id"
+  end
+
+  create_table "charges", force: :cascade do |t|
+    t.decimal "original_value"
+    t.decimal "discount_value"
+    t.string "token"
+    t.integer "status", default: 1
+    t.string "final_client_name"
+    t.string "final_client_cpf"
+    t.string "card_number"
+    t.string "card_printed_name"
+    t.string "verification_code"
+    t.string "address"
+    t.string "company_token"
+    t.string "product_token"
+    t.string "payment_method"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "companies", force: :cascade do |t|
