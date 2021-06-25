@@ -1,0 +1,12 @@
+<h1>Todas as cobranças</h1>
+
+<% if @charges.empty? %>
+    <h3>Nenhuma cobrança disponível</h3>
+<% end %>
+
+<% @charges.each do |charge| %>
+    <%= link_to charge.final_client_name, admin_charge_path(charge) %>
+    <%= charge.token %>
+    <%= number_to_currency charge.original_value %>
+    <%= number_to_currency charge.discount_value %>
+<% end %>

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :companies, only: %i[index show edit update] do
       put 'token_generator', on: :member
     end
+    resources :charges, only: %i[index show update]
   end
 
   namespace :user do

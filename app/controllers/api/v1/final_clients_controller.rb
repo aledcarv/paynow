@@ -4,7 +4,7 @@ class Api::V1::FinalClientsController < Api::V1::ApiController
         @final_client = FinalClient.new(final_client_params)
         @final_client.save!
         @client_company =  FinalClientCompany.create(final_client: @final_client, company: @company)
-        render json: @final_client, status: :created
+        render json: @final_client.as_json(expect: %i[id created_at updated_at]), status: :created
     end
 
     private

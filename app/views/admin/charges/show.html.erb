@@ -1,0 +1,30 @@
+<h1>Cobrança</h1>
+
+<dl>
+    <dt>Nome do cliente final:</dt>
+    <dd><%= @charge.final_client_name %></dd>
+    <dt>Cpf do cliente final:</dt>
+    <dd><%= @charge.final_client_cpf %></dd>
+    <dt>Token da cobrança:</dt>
+    <dd><%= @charge.token %></dd>
+    <dt>Valor original:</dt>
+    <dd><%= number_to_currency @charge.original_value %></dd>
+    <dt>Valor com desconto:</dt>
+    <dd><%= number_to_currency @charge.discount_value %></dd>
+    <dt>Status:</dt>
+    <dd><%= @charge.status %></dd>
+    <dt>Token da empresa:</dt>
+    <dd><%= @charge.company_token %></dd>
+    <dt>Token do produto:</dt>
+    <dd><%= @charge.product_token %></dd>
+    <dt>Forma de pagamento:</dt>
+    <dd><%= @charge.payment_method %></dd>
+</dl>
+
+<% if @charge.pendente? %>
+    <%= form_with model: [:admin, @charge] do |form| %>
+        <%= form.label :status, 'Status' %>
+        <%= form.select :status, [['pendente', :pendente], ['aprovado', :aprovado]] %>
+        <%= form.submit 'Atualizar status da cobrança' %>
+    <% end %>
+<% end %>
