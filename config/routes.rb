@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   devise_for :admins
   devise_for :users
 
+  resources :receipts, only: %i[show], param: :authorization_code
+
   namespace :admin do
     resources :payment_methods
     resources :companies, only: %i[index show edit update] do
