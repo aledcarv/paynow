@@ -1,0 +1,33 @@
+---
+pt-BR:
+  activerecord:
+    models:
+      product:
+        one: Produto
+        other: Produtos
+    attributes:
+      product:
+        name: Nome
+        price: Preço
+        boleto_discount: Desconto para boleto
+        pix_discount: Desconto para pix
+        card_discount: Desconto para cartão
+        token: Token
+  user:
+    products:
+      edit:
+        title: Editar produto
+        edit: Editar
+        back: Voltar
+      index:
+        title: Produtos da empresa
+        no_product_available: Nenhum produto disponível
+        register_product: Cadastrar um produto
+      new:
+        title: Criar um produto
+        register: Cadastrar
+        back: Voltar
+      show:
+        edit_product: Editar produto
+        delete_product: Apagar produto
+        back: Voltar

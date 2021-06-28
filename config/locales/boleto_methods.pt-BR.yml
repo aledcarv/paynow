@@ -1,0 +1,20 @@
+---
+pt-BR:
+  activerecord:
+    models:
+      boleto_method:
+        one: Boleto
+        other: Boletos
+    attributes:
+      boleto_method:
+        bank_code: Código do banco
+        agency_number: Número da agência
+        bank_account: Conta bancária
+  user:
+    boleto_methods:
+      edit:
+        title: Editar meio de pagamento
+        edit: 'Editar'
+      new:
+        title: Selecionar meio de pagamento
+        select: Selecionar

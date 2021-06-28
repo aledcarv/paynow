@@ -1,13 +1,13 @@
 <h1><%= @company.name %></h1>
 
 <dl>
-    <dt>CNPJ:</dt>
+    <dt><%= Company.human_attribute_name(:cnpj) %></dt>
     <dd><%= @company.cnpj %></dd>
-    <dt>Endereço de faturamento:</dt>
+    <dt><%= Company.human_attribute_name(:financial_adress) %></dt>
     <dd><%= @company.financial_adress %></dd>
-    <dt>Email de faturamento:</dt>
+    <dt><%= Company.human_attribute_name(:financial_email) %></dt>
     <dd><%= @company.financial_email %></dd>
-    <dt>Token</dt>
+    <dt><%= Company.human_attribute_name(:token) %></dt>
     <dd><%= @company.token %></dd>
 </dl>
 
@@ -19,13 +19,13 @@
 <% end %>
 
 <div>
-    <%= link_to 'Meus produtos', user_company_products_path(@company) %>
+    <%= link_to t('.my_products'), user_company_products_path(@company) %>
 </div>
 
-<h2>Meios de pagamento selecionados</h2>
+<h2><%= t('.title_selected_payment_type') %></h2>
 
 <% if @company.boleto_methods.empty? %>
-    <p>Nenhum meio de pagamento boleto selecionado</p>
+    <p><%= t('.no_payment_method_boleto_selected') %></p>
 <% else %>
     <% @company.boleto_methods.each do |boleto_method| %>
         <div>
@@ -35,15 +35,15 @@
             <p><%= boleto_method.bank_account %></p>
             
             <div>
-                <%= link_to 'Editar meio de pagamento - boleto', edit_user_payment_method_boleto_method_path(boleto_method) %>
-                <%= link_to 'Apagar', user_payment_method_boleto_method_path(boleto_method), method: :delete %>
+                <%= link_to t('.edit_payment_method_boleto'), edit_user_payment_method_boleto_method_path(boleto_method) %>
+                <%= link_to t('.delete'), user_payment_method_boleto_method_path(boleto_method), method: :delete %>
             </div>
         </div>
     <% end %>
 <% end %>
 
 <% if @company.pix_methods.empty? %>
-    <p>Nenhum meio de pagamento pix selecionado</p>
+    <p><%= t('.no_payment_method_pix_selected') %></p>
 <% else %>
     <% @company.pix_methods.each do |pix_method| %>
         <div>
@@ -52,15 +52,15 @@
             <p><%= pix_method.key_pix %></p>
 
             <div>
-                <%= link_to 'Editar meio de pagamento - pix', edit_user_payment_method_pix_method_path(pix_method) %>
-                <%= link_to 'Apagar', user_payment_method_pix_method_path(pix_method), method: :delete %>
+                <%= link_to t('.edit_payment_method_pix'), edit_user_payment_method_pix_method_path(pix_method) %>
+                <%= link_to t('.delete'), user_payment_method_pix_method_path(pix_method), method: :delete %>
             </div>
         </div>
     <% end %>
 <% end %>
 
 <% if @company.card_methods.empty? %>
-    <p>Nenhum meio de pagamento cartão selecionado</p>
+    <p><%= t('.no_payment_method_card_selected') %></p>
 <% else %>
     <% @company.card_methods.each do |card_method| %>
         <div>
@@ -68,8 +68,8 @@
             <p><%= card_method.card_code %></p>
 
             <div>
-                <%= link_to 'Editar meio de pagamento - cartão', edit_user_payment_method_card_method_path(card_method) %>
-                <%= link_to 'Apagar', user_payment_method_card_method_path(card_method), method: :delete %>
+                <%= link_to t('.edit_payment_method_card'), edit_user_payment_method_card_method_path(card_method) %>
+                <%= link_to t('.delete'), user_payment_method_card_method_path(card_method), method: :delete %>
             </div>
         </div>
     <% end %>

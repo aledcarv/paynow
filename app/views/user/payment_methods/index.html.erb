@@ -1,7 +1,7 @@
-<h1>Meios de pagamento</h1>
+<h1><%= t('.title') %></h1>
 
 <% if @payment_methods.empty? %>
-    <h3>Nenhum meio de pagamento disponível</h3>
+    <h3><%= t('.no_payment_method_available') %></h3>
 <% end %>
 
 <% @payment_methods.each do |payment_method| %>

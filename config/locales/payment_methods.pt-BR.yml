@@ -23,6 +23,7 @@ pt-BR:
         no_payment_method_available: Nenhum meio de pagamento disponível
         register_payment_method: Cadastrar um meio de pagamento
       new:
+        title: Cadastre um meio de pagamento
         register: Cadastrar
         back: Voltar
       update:
@@ -33,3 +34,11 @@ pt-BR:
         back: Voltar
       destroy:
         success: Meio de pagamento apagado com sucesso
+  user:
+    payment_methods:
+      index:
+        title: Meios de pagamento
+        no_payment_method_available: Nenhum meio de pagamento disponível
+      show:
+        select_pay_method: Selecionar este meio de pagamento
+        back: Voltar

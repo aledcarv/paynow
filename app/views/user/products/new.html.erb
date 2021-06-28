@@ -1,5 +1,5 @@
-<h1>Criar um produto</h1>
+<h1><%= t('.title') %></h1>
 
-<%= render 'form', company: @company, product: @product, submit_text: 'Cadastrar' %>
+<%= render 'form', company: @company, product: @product, submit_text: t('.register') %>
 
-<%= link_to 'Voltar', user_company_products_path(@company) %>
+<%= link_to t('.back'), user_company_products_path(@company) %>

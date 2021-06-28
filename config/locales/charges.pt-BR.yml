@@ -1,0 +1,34 @@
+---
+pt-BR:
+  activerecord:
+    models:
+      charge:
+        one: Cobrança
+        other: Cobranças
+    attributes:
+      charge/status:
+        pendente: pendente
+        aprovado: aprovado
+      charge:
+        original_value: Valor original
+        discount_value: Valor com disconto
+        token: Token
+        status: Status
+        final_client_name: Nome do cliente final
+        final_client_cpf: Cpf do cliente final
+        card_number: Número do cartão
+        card_printed_name: Nome impresso no cartão
+        verification_code: Código de verificação
+        address: Endereço
+        due_date: Data de vencimento
+        company_token: Token da empresa
+        product_token: Token do produto
+        payment_method: Método de pagamento
+  admin:
+    charges:
+      index:
+        title: Todas as cobranças
+        no_charge_available: Nenhuma cobrança disponível
+      show:
+        title: Cobrança
+        update_status_charge: Atualizar status da cobrança

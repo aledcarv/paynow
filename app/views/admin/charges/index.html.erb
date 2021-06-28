@@ -1,7 +1,7 @@
-<h1>Todas as cobranças</h1>
+<h1><%= t('.title') %></h1>
 
 <% if @charges.empty? %>
-    <h3>Nenhuma cobrança disponível</h3>
+    <h3><%= t('.no_charge_available') %></h3>
 <% end %>
 
 <% @charges.each do |charge| %>

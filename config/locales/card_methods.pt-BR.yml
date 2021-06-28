@@ -1,0 +1,17 @@
+---
+pt-BR:
+  activerecord:
+    models:
+      one: Cartão
+      other: Cartões
+    attributes:
+      card_method:
+        card_code: Código do cartão
+  user:
+    card_methods:
+      edit:
+        title: Editar meio de pagamento
+        edit: Editar
+      new:
+        title: Selecionar meio de pagamento
+        select: Selecionar

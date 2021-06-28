@@ -1,9 +1,9 @@
 <%= form_with model: [:user, payment_method, boleto_method] do |form| %>
-    <%= form.label :bank_code, 'Código do banco' %>
+    <%= form.label :bank_code %>
     <%= form.text_field :bank_code %>
-    <%= form.label :agency_number, 'Número da agência' %>
+    <%= form.label :agency_number %>
     <%= form.text_field :agency_number %>
-    <%= form.label :bank_account, 'Conta bancária' %>
+    <%= form.label :bank_account %>
     <%= form.text_field :bank_account %>
     <%= form.submit submit_text %>
 <% end %>

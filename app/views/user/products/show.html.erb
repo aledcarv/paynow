@@ -1,20 +1,20 @@
 <h1><%= @product.name %></h1>
 
 <dl>
-    <dt>Preço:</dt>
+    <dt><%= Product.human_attribute_name(:price) %></dt>
     <dd><%= number_to_currency @product.price %></dd>
-    <dt>Disconto para boleto:</dt>
+    <dt><%= Product.human_attribute_name(:boleto_discount) %></dt>
     <dd><%= number_to_percentage @product.boleto_discount, precision: 1 %></dd>
-    <dt>Disconto para pix:</dt>
+    <dt><%= Product.human_attribute_name(:pix_discount) %></dt>
     <dd><%= number_to_percentage @product.pix_discount, precision: 1 %></dd>
-    <dt>Disconto para cartão:</dt>
+    <dt><%= Product.human_attribute_name(:card_discount) %></dt>
     <dd><%= number_to_percentage @product.card_discount, precision: 1 %></dd>
-    <dt>Token:</dt>
+    <dt><%= Product.human_attribute_name(:token) %></dt>
     <dd><%= @product.token %></dd>
 </dl>
 
 <div>
-    <%= link_to 'Editar produto', edit_user_company_product_path(@product) %>
-    <%= link_to 'Apagar produto', user_company_product_path(@company), method: :delete %>
-    <%= link_to 'Voltar', user_company_products_path(@company) %>
+    <%= link_to t('.edit_product'), edit_user_company_product_path(@product) %>
+    <%= link_to t('.delete_product'), user_company_product_path(@company), method: :delete %>
+    <%= link_to t('.back'), user_company_products_path(@company) %>
 </div>

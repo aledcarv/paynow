@@ -11,6 +11,7 @@ pt-BR:
         cnpj: CNPJ
         financial_adress: Endereço de faturamento
         financial_email: Email de faturamento
+        token: Token
   user:
     companies:
       edit:
@@ -22,6 +23,15 @@ pt-BR:
       show:
         generate_token: Gere um novo token
         edit_company: Editar empresa
+        my_products: Meus produtos
+        title_selected_payment_type: Meios de pagamento selecionados
+        no_payment_method_boleto_selected: Nenhum meio de pagamento boleto selecionado
+        no_payment_method_pix_selected: Nenhum meio de pagamento pix selecionado
+        no_payment_method_card_selected: Nenhum meio de pagamento cartão selecionado
+        edit_payment_method_boleto: Editar meio de pagamento - boleto
+        edit_payment_method_pix: Editar meio de pagamento - pix
+        edit_payment_method_card: Editar meio de pagamento - cartão
+        delete: Apagar
       token_generator:
         success: token atualizado com sucesso
         alert: A atualização falhou

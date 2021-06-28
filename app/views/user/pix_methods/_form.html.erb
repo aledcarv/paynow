@@ -1,7 +1,7 @@
 <%= form_with model: [:user, payment_method, pix_method] do |form| %>
-    <%= form.label :bank_code, 'Código do banco' %>
+    <%= form.label :bank_code %>
     <%= form.text_field :bank_code %>
-    <%= form.label :key_pix, 'Chave pix' %>
+    <%= form.label :key_pix %>
     <%= form.text_field :key_pix %>
     <%= form.submit submit_text %>
 <% end %>

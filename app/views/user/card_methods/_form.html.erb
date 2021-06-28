@@ -1,5 +1,5 @@
 <%= form_with model: [:user, payment_method, card_method] do |form| %>
-    <%= form.label :card_code, 'Código do cartão' %>
+    <%= form.label :card_code %>
     <%= form.text_field :card_code %>
     <%= form.submit submit_text %>
 <% end %>

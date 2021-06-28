@@ -1,11 +1,11 @@
 <h1><%= @payment_method.name %></h1>
 
 <dl>
-    <dt>Taxa por cobrança:</dt>
+    <dt><%= PaymentMethod.human_attribute_name(:tax_porcentage) %></dt>
     <dd><%= number_to_percentage @payment_method.tax_porcentage, precision: 1 %></dd>
-    <dt>Taxa máxima:</dt>
+    <dt><%= PaymentMethod.human_attribute_name(:tax_maximum) %></dt>
     <dd><%= number_to_currency @payment_method.tax_maximum %></dd>
-    <dt>Status:</dt>
+    <dt><%= PaymentMethod.human_attribute_name(:status) %></dt>
     <dd><%= @payment_method.status ? 'Ativo' : 'Inativo' %></dd>
 </dl>
 

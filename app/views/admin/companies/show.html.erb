@@ -1,13 +1,13 @@
 <h1><%= @company.name %></h1>
 
 <dl>
-    <dt>CNPJ:</dt>
+    <dt><%= Company.human_attribute_name(:cnpj) %></dt>
     <dd><%= @company.cnpj %></dd>
-    <dt>Endereço de faturamento:</dt>
+    <dt><%= Company.human_attribute_name(:financial_adress) %></dt>
     <dd><%= @company.financial_adress %></dd>
-    <dt>Email de faturamento:</dt>
+    <dt><%= Company.human_attribute_name(:financial_email) %></dt>
     <dd><%= @company.financial_email %></dd>
-    <dt>Token:</dt>
+    <dt><%= Company.human_attribute_name(:token) %></dt>
     <dd><%= @company.token %></dd>
 </dl>
 
