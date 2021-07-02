@@ -1,5 +1,4 @@
 class Admin::CompaniesController < Admin::AdminController
-    before_action :authenticate_admin!, only: %i[index show edit]
     before_action :set_company, only: %i[show edit update token_generator]
 
     def index

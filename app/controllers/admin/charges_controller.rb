@@ -1,5 +1,4 @@
 class Admin::ChargesController < Admin::AdminController
-    before_action :authenticate_admin!, only: %i[index show]
     before_action :set_charge, only: %i[show update]
 
     def index
