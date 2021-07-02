@@ -4,6 +4,8 @@ class HomeController < ApplicationController
     def index
     end
 
+    private
+
     def verify_layout
         if admin_signed_in?
             'admin'
