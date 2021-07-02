@@ -15,7 +15,7 @@ describe 'admin view charges' do
         final_client = FinalClient.create!(name: 'Pedro Alberto', cpf: '12345678960')
 
         charge = Charge.create!(original_value: 30.0, discount_value: 28.8, token: SecureRandom.base58(20),
-                       status: :pendente, final_client_name: 'Pedro Alberto', final_client_cpf: '12345678960',
+                       status: :pending, final_client_name: 'Pedro Alberto', final_client_cpf: '12345678960',
                        company_token: company.token, product_token: product.token, payment_method: pay_method.payment_type)
 
         admin_login
@@ -68,7 +68,7 @@ describe 'admin view charges' do
         final_client = FinalClient.create!(name: 'Pedro Alberto', cpf: '12345678960')
 
         charge = Charge.create!(original_value: 30.0, discount_value: 28.8, token: SecureRandom.base58(20),
-                       status: :pendente, final_client_name: 'Pedro Alberto', final_client_cpf: '12345678960',
+                       status: :pending, final_client_name: 'Pedro Alberto', final_client_cpf: '12345678960',
                        company_token: company.token, product_token: product.token, payment_method: pay_method.payment_type)
 
         admin_login
@@ -107,7 +107,7 @@ describe 'admin view charges' do
         final_client = FinalClient.create!(name: 'Pedro Alberto', cpf: '12345678960')
 
         charge = Charge.create!(original_value: 30.0, discount_value: 28.8, token: SecureRandom.base58(20),
-                       status: :pendente, final_client_name: 'Pedro Alberto', final_client_cpf: '12345678960',
+                       status: :pending, final_client_name: 'Pedro Alberto', final_client_cpf: '12345678960',
                        company_token: company.token, product_token: product.token, payment_method: pay_method.payment_type)
 
         visit admin_charge_path(charge)

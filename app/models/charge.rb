@@ -6,7 +6,7 @@ class Charge < ApplicationRecord
               :final_client_name, :final_client_cpf,
               :company_token, :product_token, :payment_method, :status, presence: true
 
-    enum status: { pendente: 1, aprovado: 2 }
+    enum status: { pending: 1, approved: 2 }
 
     has_many :receipts
 

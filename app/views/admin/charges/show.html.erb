@@ -12,7 +12,7 @@
     <dt><%= Charge.human_attribute_name(:discount_value) %></dt>
     <dd><%= number_to_currency @charge.discount_value %></dd>
     <dt><%= Charge.human_attribute_name(:status) %></dt>
-    <dd><%= @charge.status %></dd>
+    <dd><%= Charge.human_attribute_name("status.#{@charge.status}") %></dd>
     <dt><%= Charge.human_attribute_name(:company_token) %></dt>
     <dd><%= @charge.company_token %></dd>
     <dt><%= Charge.human_attribute_name(:product_token) %></dt>
@@ -21,10 +21,10 @@
     <dd><%= @charge.payment_method %></dd>
 </dl>
 
-<% if @charge.pendente? %>
+<% if @charge.pending? %>
     <%= form_with model: [:admin, @charge] do |form| %>
         <%= form.label :status %>
-        <%= form.select :status, [['pendente', :pendente], ['aprovado', :aprovado]] %>
+        <%= form.select :status, [['pendente', :pending], ['aprovado', :approved]] %>
         <%= form.submit t('.update_status_charge') %>
     <% end %>
 <% end %>
