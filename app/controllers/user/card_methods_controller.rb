@@ -1,5 +1,4 @@
 class User::CardMethodsController < User::UserController
-    before_action :authenticate_user!, only: %i[new edit]
     before_action :set_payment_method, only: %i[new create edit update destroy]
     before_action :set_card_method, only: %i[edit update destroy]
 

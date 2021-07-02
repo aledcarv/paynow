@@ -1,5 +1,4 @@
 class User::CompaniesController < User::UserController
-    before_action :authenticate_user!, only: %i[show new edit]
     before_action :set_company, only: %i[show edit update token_generator]
 
     def new

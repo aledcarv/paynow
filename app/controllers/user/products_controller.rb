@@ -1,5 +1,4 @@
 class User::ProductsController < User::UserController
-    before_action :authenticate_user!
     before_action :set_company, only: %i[show index new create edit update destroy]
     before_action :set_product, only: %i[show edit update destroy]
 
