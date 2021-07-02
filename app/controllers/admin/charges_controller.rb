@@ -11,7 +11,7 @@ class Admin::ChargesController < Admin::AdminController
     def update
         if @charge.update(charge_params) && @charge.approved?
             Receipt.create!(charge: @charge, due_date: @charge.due_date, paid_date: Date.current)
-            redirect_to admin_charge_path(@charge), notice: 'Status da cobrança atualizado com sucesso'
+            redirect_to admin_charge_path(@charge), notice: t('.success')
         end
     end
 

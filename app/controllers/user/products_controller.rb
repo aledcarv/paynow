@@ -17,7 +17,7 @@ class User::ProductsController < User::UserController
         @product = @company.products.build(product_params)
         @product.company = current_user.company
         if @product.save
-            redirect_to [:user, @company, @product], notice: 'Produto criado com sucesso'
+            redirect_to [:user, @company, @product], notice: t('.success')
         else
             render :new
         end
@@ -28,7 +28,7 @@ class User::ProductsController < User::UserController
 
     def update
         if @product.update(product_params)
-            redirect_to [:user, @company, @product], notice: 'Produto editado com sucesso'
+            redirect_to [:user, @company, @product], notice: t('.success')
         else
             render :edit
         end
@@ -36,7 +36,7 @@ class User::ProductsController < User::UserController
 
     def destroy
         @product.destroy
-        redirect_to user_company_products_path(@company), notice: 'Produto apagado com sucesso'
+        redirect_to user_company_products_path(@company), notice: t('.success')
     end
 
     private

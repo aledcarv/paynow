@@ -32,3 +32,5 @@ pt-BR:
       show:
         title: Cobrança
         update_status_charge: Atualizar status da cobrança
+      update:
+        success: Status da cobrança atualizado com sucesso

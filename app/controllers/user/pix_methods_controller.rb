@@ -11,7 +11,7 @@ class User::PixMethodsController < User::UserController
         @pix_method.company = current_user.company
         @pix_method.payment_method = @payment_method 
         if @pix_method.save
-            redirect_to user_company_path(current_user.company_id), notice: 'Meio de pagamento selecionado'
+            redirect_to user_company_path(current_user.company_id), notice: t('.success')
         else
             render :new
         end
@@ -22,7 +22,7 @@ class User::PixMethodsController < User::UserController
 
     def update
         if @pix_method.update(pix_method_params)
-            redirect_to user_company_path(current_user.company_id), notice: 'Meio de pagamento editado'
+            redirect_to user_company_path(current_user.company_id), notice: t('.success')
         else
             render :edit
         end
@@ -30,7 +30,7 @@ class User::PixMethodsController < User::UserController
 
     def destroy
         @pix_method.destroy
-        redirect_to user_company_path(current_user.company_id), notice: 'pix apagado com sucesso'
+        redirect_to user_company_path(current_user.company_id), notice: t('.success')
     end
 
     private

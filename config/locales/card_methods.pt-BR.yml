@@ -15,3 +15,9 @@ pt-BR:
       new:
         title: Selecionar meio de pagamento
         select: Selecionar
+      create:
+        success: Meio de pagamento selecionado
+      update:
+        success: Meio de pagamento editado
+      destroy:
+        success: cartão apagado com sucesso

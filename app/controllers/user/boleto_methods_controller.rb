@@ -11,7 +11,7 @@ class User::BoletoMethodsController < User::UserController
         @boleto_method.company = current_user.company
         @boleto_method.payment_method = @payment_method
         if @boleto_method.save
-            redirect_to user_company_path(current_user.company_id), notice: 'Meio de pagamento selecionado'
+            redirect_to user_company_path(current_user.company_id), notice: t('.success')
         else
             render :new
         end
@@ -22,7 +22,7 @@ class User::BoletoMethodsController < User::UserController
 
     def update
         if @boleto_method.update(boleto_method_params)
-            redirect_to user_company_path(current_user.company_id), notice: 'Meio de pagamento editado'
+            redirect_to user_company_path(current_user.company_id), notice: t('.success')
         else
             render :edit
         end
@@ -30,7 +30,7 @@ class User::BoletoMethodsController < User::UserController
 
     def destroy
         @boleto_method.destroy
-        redirect_to user_company_path(current_user.company_id), notice: 'boleto apagado com sucesso'
+        redirect_to user_company_path(current_user.company_id), notice: t('.success')
     end
 
     private

@@ -31,3 +31,9 @@ pt-BR:
         edit_product: Editar produto
         delete_product: Apagar produto
         back: Voltar
+      create:
+        success: Produto criado com sucesso
+      update:
+        success: Produto editado com sucesso
+      destroy:
+        success: Produto apagado com sucesso

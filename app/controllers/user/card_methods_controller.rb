@@ -11,7 +11,7 @@ class User::CardMethodsController < User::UserController
         @card_method.company = current_user.company
         @card_method.payment_method = @payment_method 
         if @card_method.save
-            redirect_to user_company_path(current_user.company_id), notice: 'Meio de pagamento selecionado'
+            redirect_to user_company_path(current_user.company_id), notice: t('.success')
         else
             render :new
         end
@@ -22,7 +22,7 @@ class User::CardMethodsController < User::UserController
 
     def update
         if @card_method.update(card_method_params)
-            redirect_to user_company_path(current_user.company_id), notice: 'Meio de pagamento editado'
+            redirect_to user_company_path(current_user.company_id), notice: t('.success')
         else
             render :edit
         end
@@ -30,7 +30,7 @@ class User::CardMethodsController < User::UserController
 
     def destroy
         @card_method.destroy
-        redirect_to user_company_path(current_user.company_id), notice: 'cartão apagado com sucesso'
+        redirect_to user_company_path(current_user.company_id), notice: t('.success')
     end
 
     private
