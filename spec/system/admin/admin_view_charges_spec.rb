@@ -7,10 +7,10 @@ describe 'admin view charges' do
                                       financial_email: 'faturamento@codeplay.com.br')
                                       
         product = Product.create!(name: 'Curso de Ruby', price: 30, boleto_discount: 5, 
-                                    pix_discount: 2, card_discount: 4, company: company)
+                                  pix_discount: 2, card_discount: 4, company: company)
 
-        pay_method = PaymentMethod.new(name: 'Boleto do banco laranja', tax_porcentage: 5,
-                                        tax_maximum: 80, status: true, payment_type: :boleto)
+        pay_method = PaymentMethod.create!(name: 'Boleto do banco laranja', tax_porcentage: 5,
+                                           tax_maximum: 80, status: true, payment_type: :boleto)
 
         final_client = FinalClient.create!(name: 'Pedro Alberto', cpf: '12345678960')
 
@@ -38,10 +38,10 @@ describe 'admin view charges' do
                                       financial_email: 'faturamento@codeplay.com.br')
                                       
         product = Product.create!(name: 'Curso de Ruby', price: 30, boleto_discount: 5, 
-                                    pix_discount: 2, card_discount: 4, company: company)
+                                  pix_discount: 2, card_discount: 4, company: company)
 
-        pay_method = PaymentMethod.new(name: 'Boleto do banco laranja', tax_porcentage: 5,
-                                        tax_maximum: 80, status: true, payment_type: :boleto)
+        pay_method = PaymentMethod.create!(name: 'Boleto do banco laranja', tax_porcentage: 5,
+                                           tax_maximum: 80, status: true, payment_type: :boleto)
 
         final_client = FinalClient.create!(name: 'Pedro Alberto', cpf: '12345678960')
 
@@ -60,10 +60,10 @@ describe 'admin view charges' do
                                       financial_email: 'faturamento@codeplay.com.br')
                                       
         product = Product.create!(name: 'Curso de Ruby', price: 30, boleto_discount: 5, 
-                                    pix_discount: 2, card_discount: 4, company: company)
+                                  pix_discount: 2, card_discount: 4, company: company)
 
-        pay_method = PaymentMethod.new(name: 'Boleto do banco laranja', tax_porcentage: 5,
-                                        tax_maximum: 80, status: true, payment_type: :boleto)
+        pay_method = PaymentMethod.create!(name: 'Boleto do banco laranja', tax_porcentage: 5,
+                                           tax_maximum: 80, status: true, payment_type: :boleto)
 
         final_client = FinalClient.create!(name: 'Pedro Alberto', cpf: '12345678960')
 
@@ -99,10 +99,10 @@ describe 'admin view charges' do
                                       financial_email: 'faturamento@codeplay.com.br')
                                       
         product = Product.create!(name: 'Curso de Ruby', price: 30, boleto_discount: 5, 
-                                    pix_discount: 2, card_discount: 4, company: company)
+                                  pix_discount: 2, card_discount: 4, company: company)
 
-        pay_method = PaymentMethod.new(name: 'Boleto do banco laranja', tax_porcentage: 5,
-                                        tax_maximum: 80, status: true, payment_type: :boleto)
+        pay_method = PaymentMethod.create!(name: 'Boleto do banco laranja', tax_porcentage: 5,
+                                           tax_maximum: 80, status: true, payment_type: :boleto)
 
         final_client = FinalClient.create!(name: 'Pedro Alberto', cpf: '12345678960')
 
