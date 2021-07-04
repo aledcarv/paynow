@@ -35,6 +35,12 @@ Instale as dependências
   bin/setup
 ```
 
+Para popular o banco com dados já existentes, digite
+
+```bash
+  rails db:seed
+```
+
 Inicie o servidor
 
 ```bash
@@ -55,6 +61,12 @@ Para rodar os testes, insira o seguinte comando
   rspec
 ```
 
-  # Observação
+# Observação
 
- - Para acessar como admin da paynow, é necessário fazer cadastro via console, utilizando o domínio `@paynow.com.br`
+- O cadastro na Paynow deve ser feito via console, utilizando o domínio `@paynow.com.br`
+- Acesse `http://127.0.0.1:3000/admins/sign_in` para logar como admin
+
+## Navegação
+
+- Para acessar como admin a partir de uma conta já definida, utilize o email `admin@paynow.com.br` e a senha `012345`
+- Para acessar como cliente a partir de uma conta já definida, utilize o email `user@codeplay.com.br` e a senha `123456`
