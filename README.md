@@ -1,7 +1,7 @@
 
 # Descrição
 
-A Paynow é um site criado para que empresas possam decidir quais meios de pagamento serão utilizados em suas vendagens e, a partir disso, gerar cobranças.
+A Paynow é uma plataforma de pagamento criada para que empresas possam decidir, dentre os meios de pagamento disponíveis, quais serão utilizados em suas vendagens e, a partir disso, gerar cobranças destinadas aos seus próprios clientes.
 
 ## Gems usadas no projeto
 
@@ -102,13 +102,14 @@ POST '/api/v1/charges'
 ```bash
   {
     "charge": {
-        "company_token": "token da empresa cliente",
-        "product_token": "token do produto",
-        "payment_method": "token do método de pagamento",
-        "final_client_name": "nome do cliente final",
-        "final_client_cpf": "cpf do cliente final", 
-        "address": "endereço do cliente final"
+      "company_token": "token da empresa cliente",
+      "product_token": "token do produto",
+      "payment_method": "token do método de pagamento",
+      "final_client_name": "nome do cliente final",
+      "final_client_cpf": "cpf do cliente final", 
+      "address": "endereço do cliente final"
     }
+  }
 ```
 
 - Para Cartão de crédito
@@ -116,15 +117,16 @@ POST '/api/v1/charges'
 ```bash
   {
     "charge": {
-        "company_token": "token da empresa cliente",
-        "product_token": "token do produto",
-        "payment_method": "token do método de pagamento",
-        "final_client_name": "nome do cliente final",
-        "final_client_cpf": "cpf do cliente final", 
-        "card_number": "Número do cartão de crédito",
-        "card_printed_name": "Nome impresso no cartão de crédito",
-        "verification_code": "Código de verificação"
+      "company_token": "token da empresa cliente",
+      "product_token": "token do produto",
+      "payment_method": "token do método de pagamento",
+      "final_client_name": "nome do cliente final",
+      "final_client_cpf": "cpf do cliente final", 
+      "card_number": "Número do cartão de crédito",
+      "card_printed_name": "Nome impresso no cartão de crédito",
+      "verification_code": "Código de verificação"
     }
+  }
 ```
 
 - Para PIX
@@ -132,12 +134,13 @@ POST '/api/v1/charges'
 ```bash
   {
     "charge": {
-        "company_token": "token da empresa cliente",
-        "product_token": "token do produto",
-        "payment_method": "token do método de pagamento",
-        "final_client_name": "nome do cliente final",
-        "final_client_cpf": "cpf do cliente final", 
+      "company_token": "token da empresa cliente",
+      "product_token": "token do produto",
+      "payment_method": "token do método de pagamento",
+      "final_client_name": "nome do cliente final",
+      "final_client_cpf": "cpf do cliente final", 
     }
+  }
 ```
 
 - Se os dados estiverem distribuidos de forma correta, a requisição retorna um `status 201`
