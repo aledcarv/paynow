@@ -70,3 +70,75 @@ Para rodar os testes, insira o seguinte comando
 
 - Para acessar como admin a partir de uma conta já definida, utilize o email `admin@paynow.com.br` e a senha `012345`
 - Para acessar como cliente a partir de uma conta já definida, utilize o email `user@codeplay.com.br` e a senha `123456`
+
+# API
+
+## Registro do cliente final
+
+-  Este endpoint recebe as informações do cliente de uma determinada empresa cadastrada na Paynow
+
+POST '/api/v1/final_clients'
+
+```bash
+  {
+    "final_client": {
+      "name": "Nome do cliente final"
+      "cpf": "Cpf do cliente final"
+    },
+    "company_token": "token da empresa cliente"
+  }
+```
+- Se os dados estiverem distribuidos de forma correta, a requisição retorna um `status 201` e o cliente é registrado
+- HTTP Status 422: caso algum parâmetro esteja inválido ou ausente
+
+## Emissão de cobranças
+
+- Este endpoint é utilizado para emitir as cobranças de uma determinada empresa cadastrada na Paynow.
+
+POST '/api/v1/charges'
+
+- Para boleto
+
+```bash
+  {
+    "charge": {
+        "company_token": "token da empresa cliente",
+        "product_token": "token do produto",
+        "payment_method": "token do método de pagamento",
+        "final_client_name": "nome do cliente final",
+        "final_client_cpf": "cpf do cliente final", 
+        "address": "endereço do cliente final"
+    }
+```
+
+- Para Cartão de crédito
+
+```bash
+  {
+    "charge": {
+        "company_token": "token da empresa cliente",
+        "product_token": "token do produto",
+        "payment_method": "token do método de pagamento",
+        "final_client_name": "nome do cliente final",
+        "final_client_cpf": "cpf do cliente final", 
+        "card_number": "Número do cartão de crédito",
+        "card_printed_name": "Nome impresso no cartão de crédito",
+        "verification_code": "Código de verificação"
+    }
+```
+
+- Para PIX
+
+```bash
+  {
+    "charge": {
+        "company_token": "token da empresa cliente",
+        "product_token": "token do produto",
+        "payment_method": "token do método de pagamento",
+        "final_client_name": "nome do cliente final",
+        "final_client_cpf": "cpf do cliente final", 
+    }
+```
+
+- Se os dados estiverem distribuidos de forma correta, a requisição retorna um `status 201`
+- HTTP Status 422: caso algum parâmetro esteja inválido ou ausente
